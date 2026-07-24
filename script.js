@@ -1,7 +1,7 @@
 const factBtn = document.getElementById("factBtn");
 const musicBtn = document.getElementById("musicBtn");
 const factText = document.getElementById("factText");
-const music = document.getElementById("bgMusic");
+const music = document.getElementById("bgMusic"); // this is VIDEO now
 const typedLetter = document.getElementById("typedLetter");
 const countdownEl = document.getElementById("countdown");
 
@@ -18,18 +18,24 @@ factBtn.addEventListener("click", () => {
   factText.textContent = random;
 });
 
-// MUSIC TOGGLE
+// PLAY/PAUSE VIDEO BUTTON
 musicBtn.addEventListener("click", async () => {
   try {
+    if (!music) {
+      alert("Video element not found. Check id='bgMusic' in index.html");
+      return;
+    }
+
     if (music.paused) {
       await music.play();
-      musicBtn.textContent = "Pause Music ⏸️";
+      musicBtn.textContent = "Pause Video ⏸️";
     } else {
       music.pause();
-      musicBtn.textContent = "Play Music 🔊";
+      musicBtn.textContent = "Play Video ▶️";
     }
   } catch (e) {
-    alert("If music doesn't start, click the button again ❤️");
+    alert("Video failed. Check file name is exactly music.mp4");
+    console.error(e);
   }
 });
 
@@ -41,6 +47,7 @@ const letterText =
 
 let i = 0;
 function typeLetter() {
+  if (!typedLetter) return;
   if (i < letterText.length) {
     typedLetter.textContent += letterText.charAt(i);
     i++;
@@ -50,10 +57,11 @@ function typeLetter() {
 typeLetter();
 
 // DAYS TOGETHER COUNTER
-// CHANGE THIS DATE to your real start date:
+// You said you are together from July 13:
 const togetherDate = new Date("2026-07-13T00:00:00");
 
 function updateCountdown() {
+  if (!countdownEl) return;
   const now = new Date();
   const diff = now - togetherDate;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -65,6 +73,8 @@ setInterval(updateCountdown, 60000);
 // HEARTS ANIMATION
 const heartsContainer = document.querySelector(".hearts");
 setInterval(() => {
+  if (!heartsContainer) return;
+
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.textContent = ["💖","💕","💗","💓","💘"][Math.floor(Math.random() * 5)];
