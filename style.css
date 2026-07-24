@@ -1,0 +1,121 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #ff8fc7, #ffc3df, #ffd9ec);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: white;
+}
+
+.card {
+  width: min(92vw, 760px);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.subtitle {
+  margin-top: 8px;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.message {
+  margin: 22px auto;
+  line-height: 1.7;
+  font-size: 1.12rem;
+  max-width: 600px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  background: white;
+  color: #ff3b93;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.fact {
+  margin-top: 16px;
+  font-size: 1.05rem;
+  min-height: 28px;
+}
+
+.letterBox {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.12);
+}
+
+.typed {
+  line-height: 1.7;
+  font-size: 1.06rem;
+  min-height: 90px;
+  white-space: pre-wrap;
+}
+
+.countdown {
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 24px;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* Floating hearts */
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 18px;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) translateX(20px);
+    opacity: 0;
+  }
+}
