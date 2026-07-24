@@ -58,7 +58,7 @@ typeLetter();
 
 // DAYS TOGETHER COUNTER
 // You said you are together from July 13:
-const togetherDate = new Date("2026-07-13T00:00:00");
+const togetherDate = new Date("2026-06-13T00:00:00");
 
 function updateCountdown() {
   if (!countdownEl) return;
