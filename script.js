@@ -1,7 +1,7 @@
 const factBtn = document.getElementById("factBtn");
 const musicBtn = document.getElementById("musicBtn");
 const factText = document.getElementById("factText");
-const music = document.getElementById("bgMusic"); // this is VIDEO now
+const music = document.getElementById("bgMusic");
 const typedLetter = document.getElementById("typedLetter");
 const countdownEl = document.getElementById("countdown");
 
@@ -13,16 +13,43 @@ const facts = [
   "Every moment with Mai feels special ✨"
 ];
 
-factBtn.addEventListener("click", () => {
+factBtn?.addEventListener("click", () => {
   const random = facts[Math.floor(Math.random() * facts.length)];
   factText.textContent = random;
 });
 
+// Set best video source based on URL
+function setBestVideoSource() {
+  if (!music) return;
+
+  const pathParts = location.pathname.split("/").filter(Boolean);
+  const repoName = pathParts[0] || "";
+  const isUserSite = location.hostname.endsWith(".github.io") && pathParts.length === 0;
+
+  const candidates = isUserSite
+    ? ["music.mp4", "./music.mp4", "/music.mp4"]
+    : ["./music.mp4", `/${repoName}/music.mp4`, "music.mp4"];
+
+  let idx = 0;
+  music.src = candidates[idx];
+  music.load();
+
+  music.addEventListener("error", () => {
+    idx++;
+    if (idx < candidates.length) {
+      music.src = candidates[idx];
+      music.load();
+    }
+  });
+}
+
+setBestVideoSource();
+
 // PLAY/PAUSE VIDEO BUTTON
-musicBtn.addEventListener("click", async () => {
+musicBtn?.addEventListener("click", async () => {
   try {
     if (!music) {
-      alert("Video element not found. Check id='bgMusic' in index.html");
+      alert("Video not found. Check id='bgMusic' in index.html");
       return;
     }
 
@@ -34,7 +61,7 @@ musicBtn.addEventListener("click", async () => {
       musicBtn.textContent = "Play Video ▶️";
     }
   } catch (e) {
-    alert("Video failed. Check file name is exactly music.mp4");
+    alert("Video failed. Ensure file name is exactly: music.mp4");
     console.error(e);
   }
 });
@@ -57,8 +84,7 @@ function typeLetter() {
 typeLetter();
 
 // DAYS TOGETHER COUNTER
-// You said you are together from July 13:
-const togetherDate = new Date("2026-06-13T00:00:00");
+const togetherDate = new Date("2026-07-13T00:00:00");
 
 function updateCountdown() {
   if (!countdownEl) return;
@@ -77,7 +103,7 @@ setInterval(() => {
 
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.textContent = ["💖","💕","💗","💓","💘"][Math.floor(Math.random() * 5)];
+  heart.textContent = ["💖", "💕", "💗", "💓", "💘"][Math.floor(Math.random() * 5)];
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = (4 + Math.random() * 5) + "s";
   heart.style.fontSize = (14 + Math.random() * 20) + "px";
