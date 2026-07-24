@@ -21,7 +21,7 @@
 
     <div class="buttons">
       <button id="factBtn">Show a Love Fact 💌</button>
-      <button id="musicBtn">Play Music 🔊</button>
+      <button id="musicBtn">Play Video ▶️</button>
     </div>
 
     <p id="factText" class="fact"></p>
@@ -33,15 +33,15 @@
 
     <p id="countdown" class="countdown"></p>
 
+    <!-- VIDEO -->
+    <!-- Put your file in repo root and name it exactly: music.mp4 -->
+    <video id="bgMusic" controls playsinline preload="auto" class="loveVideo">
+      <source src="music.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
     <p class="footer">Made by Bezalel for Mai 🌸</p>
   </main>
-
-  <!-- MUSIC (MP4) -->
-  <!-- Put your file in the SAME folder as this index.html and name it: music.mp4 -->
-  <audio id="bgMusic" preload="auto">
-    <source src="music.mp4" type="audio/mp4" />
-    Your browser does not support audio.
-  </audio>
 
   <script src="script.js"></script>
 </body>
