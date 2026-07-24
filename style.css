@@ -104,9 +104,14 @@ button:hover {
 }
 
 .loveVideo {
-  width: min(92vw, 560px);
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   border-radius: 16px;
-  margin-top: 16px;
+  margin: 16px auto 0;
   box-shadow: 0 10px 24px rgba(0,0,0,0.22);
   background: #000;
 }
@@ -139,5 +144,65 @@ button:hover {
   to {
     transform: translateY(-110vh) translateX(20px);
     opacity: 0;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .card {
+    width: 94vw;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .message,
+  .typed {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .loveVideo {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}
+
+/* Landscape phones (horizontal hold) */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: 10px 0;
+  }
+
+  .card {
+    width: 96vw;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .message {
+    margin: 10px auto;
+    font-size: 0.95rem;
+  }
+
+  .typed {
+    min-height: 54px;
+    font-size: 0.95rem;
+  }
+
+  .loveVideo {
+    max-width: min(92vw, 480px);
+    margin-top: 10px;
+  }
+
+  .footer {
+    margin-top: 10px;
+    font-size: 0.85rem;
   }
 }
