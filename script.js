@@ -84,7 +84,7 @@ function typeLetter() {
 typeLetter();
 
 // DAYS TOGETHER COUNTER
-const togetherDate = new Date("2026-07-13T00:00:00");
+const togetherDate = new Date("2026-06-13T00:00:00");
 
 function updateCountdown() {
   if (!countdownEl) return;
