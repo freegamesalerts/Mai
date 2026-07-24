@@ -7,38 +7,40 @@ body {
   background: linear-gradient(135deg, #ff8fc7, #ffc3df, #ffd9ec);
   display: grid;
   place-items: center;
-  overflow: hidden;
-  color: white;
+  overflow-x: hidden;
+  color: #1a1a1a; /* darker text for better visibility */
 }
 
 .card {
-  width: min(92vw, 760px);
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255,255,255,0.35);
-  backdrop-filter: blur(8px);
+  width: min(92vw, 820px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
   border-radius: 24px;
   padding: 28px;
   text-align: center;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
   z-index: 2;
 }
 
 h1 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3rem);
+  color: #111;
 }
 
 .subtitle {
   margin-top: 8px;
-  opacity: 0.9;
-  font-weight: 600;
+  color: #2c2c2c;
+  font-weight: 700;
 }
 
 .message {
   margin: 22px auto;
   line-height: 1.7;
   font-size: 1.12rem;
-  max-width: 600px;
+  max-width: 640px;
+  color: #111;
 }
 
 .buttons {
@@ -54,46 +56,66 @@ button {
   padding: 12px 18px;
   font-weight: 700;
   cursor: pointer;
-  background: white;
-  color: #ff3b93;
-  transition: transform .15s ease, box-shadow .15s ease;
+  background: #111;
+  color: #fff;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
 }
 
 button:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  opacity: 0.95;
 }
 
 .fact {
   margin-top: 16px;
   font-size: 1.05rem;
   min-height: 28px;
+  font-weight: 600;
+  color: #111;
 }
 
 .letterBox {
   margin-top: 20px;
   padding: 16px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.letterBox h2 {
+  margin-top: 0;
+  color: #111;
 }
 
 .typed {
-  line-height: 1.7;
-  font-size: 1.06rem;
-  min-height: 90px;
+  line-height: 1.75;
+  font-size: 1.08rem;
+  min-height: 96px;
   white-space: pre-wrap;
+  color: #111;
 }
 
 .countdown {
   margin-top: 16px;
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.loveVideo {
+  width: min(92vw, 560px);
+  border-radius: 16px;
+  margin-top: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+  background: #000;
 }
 
 .footer {
-  margin-top: 24px;
-  opacity: 0.85;
+  margin-top: 20px;
+  color: #333;
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 /* Floating hearts */
@@ -107,7 +129,7 @@ button:hover {
 
 .heart {
   position: absolute;
-  bottom: -20px;
+  bottom: -24px;
   font-size: 18px;
   animation: floatUp linear forwards;
   opacity: 0.8;
