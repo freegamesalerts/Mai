@@ -42,7 +42,6 @@ function setBestVideoSource() {
     }
   });
 }
-
 setBestVideoSource();
 
 // PLAY/PAUSE VIDEO BUTTON
