@@ -51,7 +51,7 @@ typeLetter();
 
 // DAYS TOGETHER COUNTER
 // CHANGE THIS DATE to your real start date:
-const togetherDate = new Date("2025-01-01T00:00:00");
+const togetherDate = new Date("2026-07-13T00:00:00");
 
 function updateCountdown() {
   const now = new Date();
